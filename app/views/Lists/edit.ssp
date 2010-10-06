@@ -1,0 +1,32 @@
+<% attributes("title") = "Edit this list" %>
+<%@ val list: List = new List %>
+<% if(list.id==null) list.id = 0L %>
+<h1>
+  Edit this list 
+  <span class="more">
+    <form method="POST"
+          id="e075ec00-0457-4786-ad02-833e32bf9a86"
+          style="display:none"
+          action='/lists/${list.id.toString.split(",").mkString}?x-http-method-override=DELETE'></form>
+    <a href="javascript:document.getElementById('e075ec00-0457-4786-ad02-833e32bf9a86').submit();" >Or delete it</a>
+  </span>
+</h1>
+
+<form action='/lists/${list.id.toString.split(",").mkString}'
+      method="POST" 
+      accept-charset="utf-8"
+      enctype="application/x-www-form-urlencoded" >
+  <p>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" size="60" value="${list.name}" />
+  </p>
+    
+  <p>
+    <label for="notes">Notes (optional)</label>
+    <textarea id="notes" name="notes" cols="60" rows="5">${if(list.notes!=null) list.notes else ""}</textarea>
+  </p>
+    
+  <p>
+    <input type="submit" value="Save changes"> or <a href='/lists/${list.id.toString.split(",").mkString}'>Cancel</a>
+  </p>
+</form>

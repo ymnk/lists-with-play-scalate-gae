@@ -1,0 +1,13 @@
+<% attributes("title") = "Create a new list" %>
+<form action='/lists'
+      method="POST" accept-charset="utf-8" 
+      enctype="application/x-www-form-urlencoded" >
+  <p>
+    <label for="name">What's your new list name ?</label>
+    <input type="text" name="name" id="name" size="60" />
+  </p>
+    
+  <p>
+    <input type="submit" value="Create this list"> or <a href='/lists'>Cancel</a>
+  </p>
+</form>

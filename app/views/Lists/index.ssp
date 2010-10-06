@@ -1,0 +1,16 @@
+<% attributes("title") = "Your lists" %>
+<% import scala.collection.JavaConversions._ %>
+<%@ val lists: java.util.Collection[List] = new java.util.ArrayList[List] %>
+<h1>My lists <span class="more"><a href='/lists/new'>create a new list</a></span></h1>
+    
+#if (lists == null)
+  <p class="info">
+    You don't have any list yet. <a href='/lists/new'>Create your first list</a>
+  </p>
+#end
+
+<ol id="lists">
+#for (list <- lists)
+  <li><a href='/lists/${list.id.toString.split(",").mkString}'>${list}</a></li>
+#end
+</ol>
