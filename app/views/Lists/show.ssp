@@ -2,7 +2,7 @@
 <% import scala.collection.JavaConversions._ %>
 <%@ val list: List = new List %>
 <% if(list.id==null) list.id = 0L %>
-<%@ val list_id: String = list.id.toString.split(",").mkString %>
+<%@ val list_id: String = list.id.toString %>
 <%@ val items: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
 <%@ val oldItems: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
 <h1>
@@ -21,7 +21,7 @@
 
   <ul id="todo">
   #for(item <- items)
-    <li rel='${item.id.toString.split(",").mkString}'>
+    <li rel='${item.id.toString}'>
       <input type="checkbox" class="checker" />
       ${item} <span class="do">- <a class="deleter" href="#">delete</a></span>
     </li>
@@ -39,7 +39,7 @@
 
   <ul id="done">
     #for(item <- oldItems)
-      <li rel='${item.id.toString.split(",").mkString}' ><input type="checkbox" checked="true" class="checker" />${item} <span class="do">- <a class="deleter" href="#">delete</a></span></li> 
+      <li rel='${item.id.toString}' ><input type="checkbox" checked="true" class="checker" />${item} <span class="do">- <a class="deleter" href="#">delete</a></span></li> 
     #end
   </ul>
 </div>

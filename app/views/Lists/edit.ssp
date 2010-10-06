@@ -1,7 +1,7 @@
 <% attributes("title") = "Edit this list" %>
 <%@ val list: List = new List %>
 <% if(list.id==null) list.id = 0L %>
-<%@ val list_id: String = list.id.toString.split(",").mkString %>
+<%@ val list_id: String = list.id.toString %>
 <h1>
   Edit this list 
   <span class="more">
