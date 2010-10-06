@@ -11,6 +11,6 @@
 
 <ol id="lists">
 #for (list <- lists)
-  <li><a href='${url("Lists.show", Map("id"->list.id.toString.split(",").mkString))}'>${list}</a></li>
+  <li><a href='${url("Lists.show", scala.List(list.id.toString.split(",").mkString))}'>${list}</a></li>
 #end
 </ol>

@@ -8,12 +8,12 @@
     <form method="POST"
           id="e075ec00-0457-4786-ad02-833e32bf9a86"
           style="display:none"
-          action='${url("Lists.delete", Map("id" -> list_id))}?x-http-method-override=DELETE'></form>
+          action='${url("Lists.delete", scala.List(list_id))}?x-http-method-override=DELETE'></form>
     <a href="javascript:document.getElementById('e075ec00-0457-4786-ad02-833e32bf9a86').submit();" >Or delete it</a>
   </span>
 </h1>
 
-<form action='${url("Lists.save", Map("id"->list_id))}'
+<form action='${url("Lists.save", scala.List(list_id))}'
       method="POST" 
       accept-charset="utf-8"
       enctype="application/x-www-form-urlencoded" >
@@ -28,6 +28,6 @@
   </p>
     
   <p>
-    <input type="submit" value="Save changes"> or <a href='${url("Lists.show", Map("id"->list_id))}'>Cancel</a>
+    <input type="submit" value="Save changes"> or <a href='${url("Lists.show", scala.List(list_id))}'>Cancel</a>
   </p>
 </form>
