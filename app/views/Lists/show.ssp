@@ -1,7 +1,6 @@
 <% attributes("title") = "Create a new list" %>
 <% import scala.collection.JavaConversions._ %>
 <%@ val list: List = new List %>
-<% if(list.id==null) list.id = 0L %>
 <%@ val list_id: String = list.id.toString %>
 <%@ val items: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
 <%@ val oldItems: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
@@ -15,10 +14,7 @@
 </span></h1>
 
 <div id="items">
-#if (list.notes!=null)
   <p>${list.notes}</p>
-#end
-
   <ul id="todo">
   #for(item <- items)
     <li rel='${item.id.toString}'>

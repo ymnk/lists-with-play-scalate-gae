@@ -1,6 +1,5 @@
 <% attributes("title") = "Edit this list" %>
 <%@ val list: List = new List %>
-<% if(list.id==null) list.id = 0L %>
 <%@ val list_id: String = list.id.toString %>
 <h1>
   Edit this list 
@@ -24,7 +23,7 @@
     
   <p>
     <label for="notes">Notes (optional)</label>
-    <textarea id="notes" name="notes" cols="60" rows="5">${if(list.notes!=null) list.notes else ""}</textarea>
+    <textarea id="notes" name="notes" cols="60" rows="5">${list.notes}</textarea>
   </p>
     
   <p>

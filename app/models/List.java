@@ -16,6 +16,10 @@ public class List extends Model {
   @Filter("list")
   public Query<Item> items;
     
+  public List() {
+    this.id = 0L;  // Working around NPE in precompiling *.ssp files.
+  }
+
   public List(String user, String name) {
     this.user = user;
     this.name = name;

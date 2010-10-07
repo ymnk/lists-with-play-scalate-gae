@@ -3,7 +3,7 @@
 <%@ val lists: java.util.Collection[List] = new java.util.ArrayList[List] %>
 <h1>My lists <span class="more"><a href='${url("Lists.blank")}'>create a new list</a></span></h1>
     
-#if (lists == null)
+#if (lists.size == 0)
   <p class="info">
     You don't have any list yet. <a href='${url("Lists.blank")}'>Create your first list</a>
   </p>

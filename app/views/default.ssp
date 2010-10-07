@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ var body: String %>
 <%@ var title: String = "Some Default Title" %>
-<%@ val user: String = null %>
+<%@ val user: String = "" %>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title>${title}</title>		
@@ -20,7 +20,7 @@
             please use the real Ta-da Lists, not this one !!
         </div>
 
-        #if (user != null)
+        #if (!user.isEmpty)
             <div id="user">
                 You're logged as ${user}, <a href='${url("Application.logout")}'>Logout</a>
             </div>
