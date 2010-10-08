@@ -6,11 +6,11 @@
 <%@ val oldItems: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
 <h1>
   <a id="back" href='${url("Lists.index")}'>My lists:</a> ${list} <span class="more">
-  <a href='${url("Lists.edit", scala.List(list_id))}'">Edit</a>
+  <a href='${url("Lists.edit", list_id)}'">Edit</a>
 #if (items.size() > 1)
    | <a id="sort" href="#">Reorder</a>
 #end
-   | <a href='${url("Lists.email", scala.List(list_id))}'>Email yourself a copy</a>
+   | <a href='${url("Lists.email", list_id)}'>Email yourself a copy</a>
 </span></h1>
 
 <div id="items">
@@ -24,7 +24,7 @@
   #end
   </ul>
 
-  <form action='${url("Lists.addItems", scala.List(list_id))}'
+  <form action='${url("Lists.addItems", list_id)}'
         method="POST"
         accept-charset="utf-8"
         enctype="application/x-www-form-urlencoded" >
@@ -46,7 +46,7 @@
        $('.checker').change(function() {
            var done = $(this).parents('ul').is("#todo");
            var li = $(this).parent();
-           $.post('${url("Lists.changeItemState", scala.List(list_id, "000000"))}'.replace('000000', li.attr('rel')), {done: done}, function() {
+           $.post('${url("Lists.changeItemState", list_id, "000000")}'.replace('000000', li.attr('rel')), {done: done}, function() {
                if(done) {
                    $('#done').prepend(li);
                    $(li).effect('highlight')
@@ -59,7 +59,7 @@
        $('.deleter').live('click', function(e) {
            var l = $(this);
            e.preventDefault();
-           $.post('${url("Lists.deleteItem", scala.List(list_id, "000000"))}'.replace('000000', $(this).parent().parent().attr('rel')), function() {
+           $.post('${url("Lists.deleteItem", list_id, "000000")}'.replace('000000', $(this).parent().parent().attr('rel')), function() {
               l.parent().parent('li').effect('drop');
            });
        });
@@ -76,7 +76,7 @@
                    order += ','+$(this).attr('rel');
                });
                order = order.substring(1);
-               $.post('${url("Lists.reorderItems", scala.List(list_id))}', {newOrder: order});
+               $.post('${url("Lists.reorderItems", list_id)}', {newOrder: order});
            } else {
                $(this).html("I'm done reordering").addClass('strong');
                $('#items').toggleClass('sortable');
