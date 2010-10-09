@@ -24,14 +24,12 @@
   #end
   </ul>
 
-  <form action='${url("Lists.addItems", list_id)}'
-        method="POST"
-        accept-charset="utf-8"
-        enctype="application/x-www-form-urlencoded" >
-
-    <input type="text" name="label" size="30" />
-      <p><input type="submit" value="+ Add this item"></p>    
-  </form>
+  <%=
+    form("Lists.addItems", list_id)(
+      <input type="text" name="label" size="30" />
+      <p><input type="submit" value="+ Add this item" /></p>    
+    )  
+  %>
 
   <ul id="done">
     #for(item <- oldItems)

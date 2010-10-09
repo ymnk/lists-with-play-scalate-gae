@@ -4,29 +4,24 @@
 <h1>
   Edit this list 
   <span class="more">
-    <form method="POST"
-          id="e075ec00-0457-4786-ad02-833e32bf9a86"
-          style="display:none"
-          action='${url("Lists.delete", list_id)}?x-http-method-override=DELETE'></form>
-    <a href="javascript:document.getElementById('e075ec00-0457-4786-ad02-833e32bf9a86').submit();" >Or delete it</a>
+  ${ anchor("Lists.delete", list_id)("Or delete it") }
   </span>
 </h1>
+<%=
+  form("Lists.save", list_id)(
+    <p>
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" size="60" value={ list.name } />
+    </p>
+    
+    <p>
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" name="notes" cols="60" rows="5">{ list.notes }</textarea>
+    </p>
 
-<form action='${url("Lists.save", list_id)}'
-      method="POST" 
-      accept-charset="utf-8"
-      enctype="application/x-www-form-urlencoded" >
-  <p>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" size="60" value="${list.name}" />
-  </p>
-    
-  <p>
-    <label for="notes">Notes (optional)</label>
-    <textarea id="notes" name="notes" cols="60" rows="5">${list.notes}</textarea>
-  </p>
-    
-  <p>
-    <input type="submit" value="Save changes"> or <a href='${url("Lists.show", list_id)}'>Cancel</a>
-  </p>
-</form>
+    <p>
+      <input type="submit" value="Save changes" /> or 
+      <a href={ url("Lists.show", list_id) }>Cancel</a>
+    </p>
+  )
+%>
