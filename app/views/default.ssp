@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ var body: String %>
 <%@ var title: String = "Some Default Title" %>
-<%@ val user: String = "" %>
+<%@ val user: String %>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
     <head>
         <title>${title}</title>		
@@ -26,10 +26,10 @@
             </div>
         #end
 
-        #if (flash != null && flash.get("error") != null)
+        #if (flash.get("error") != null)
             <p class="error">${flash.get("error")}</p>
         #end
-        #if (flash != null && flash.get("success") != null)
+        #if (flash.get("success") != null)
             <p class="success">${flash.get("success")}</p>
         #end
 

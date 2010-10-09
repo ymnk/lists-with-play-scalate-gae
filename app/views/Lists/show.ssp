@@ -1,9 +1,9 @@
 <% attributes("title") = "Create a new list" %>
 <% import scala.collection.JavaConversions._ %>
-<%@ val list: List = new List %>
+<%@ val list: List %>
 <%@ val list_id: String = list.id.toString %>
-<%@ val items: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
-<%@ val oldItems: java.util.Collection[Item] = new java.util.ArrayList[Item] %>
+<%@ val items: java.util.Collection[Item] %>
+<%@ val oldItems: java.util.Collection[Item] %>
 <h1>
   <a id="back" href='${url("Lists.index")}'>My lists:</a> ${list} <span class="more">
   <a href='${url("Lists.edit", list_id)}'">Edit</a>

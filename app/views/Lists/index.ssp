@@ -1,6 +1,6 @@
 <% attributes("title") = "Your lists" %>
 <% import scala.collection.JavaConversions._ %>
-<%@ val lists: java.util.Collection[List] = new java.util.ArrayList[List] %>
+<%@ val lists: java.util.Collection[List] %>
 <h1>My lists <span class="more"><a href='${url("Lists.blank")}'>create a new list</a></span></h1>
     
 #if (lists.size == 0)

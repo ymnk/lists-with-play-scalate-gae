@@ -1,5 +1,5 @@
 <% attributes("title") = "Edit this list" %>
-<%@ val list: List = new List %>
+<%@ val list: List %>
 <%@ val list_id: String = list.id.toString %>
 <h1>
   Edit this list 
