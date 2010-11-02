@@ -11,7 +11,7 @@ object Application extends ScalateController {
     if(GAE.isLoggedIn()) {
       Lists.index()
     }
-    render()
+    Template()
   }
     
   def login() = {
